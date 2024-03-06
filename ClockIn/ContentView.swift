@@ -17,16 +17,22 @@ class NetworkMonitor: ObservableObject {
 
 struct ContentView: View {
   @StateObject private var networkMonitor = NetworkMonitor()
+  @State var lastSent: Date = Date(timeIntervalSince1970: 0)
 
   var body: some View {
     VStack {
       Text(networkMonitor.isConnected ? "Connected" : "Not Connected")
       Text(getCurrentSSID())
+      Text(lastSent.formatted())
     }.onChange(of: networkMonitor.isConnected) {
       guard networkMonitor.isConnected else { return }
       if getCurrentSSID() == Constants.OFFICE_SSID {
         Task {
-          try await sendMessage(text: "Atul has arrived at the office.")
+          let currentDate = Date()
+          if !Calendar.current.isDate(currentDate, inSameDayAs: lastSent) {
+            try await sendMessage(text: "Atul has arrived at the office.")
+            self.lastSent = currentDate
+          }
         }
       }
     }
