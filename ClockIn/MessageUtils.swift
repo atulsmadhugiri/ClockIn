@@ -16,7 +16,7 @@ func sendMessage(text: String) async throws {
 
   let messageBody = MessageBody(
     threadID: "256|518255",
-    localID: String(format: "%02X", Int.random(in: 0..<Int.max)),
+    localID: Date().formatted(date: .abbreviated, time: .omitted),
     text: text
   )
 
