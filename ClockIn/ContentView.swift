@@ -9,16 +9,7 @@ class NetworkMonitor: ObservableObject {
   init() {
     monitor = NWPathMonitor(requiredInterfaceType: .wifi)
     monitor.pathUpdateHandler = { path in
-      Task {
-        await MainActor.run {
-          self.isConnected = path.status == .satisfied
-          if self.isConnected && (getCurrentSSID() == "wizards") {
-            Task {
-              try await sendMessage(text: "Atul has arrived at the office.")
-            }
-          }
-        }
-      }
+      Task { await MainActor.run { self.isConnected = path.status == .satisfied } }
     }
     monitor.start(queue: queue)
   }
@@ -31,6 +22,13 @@ struct ContentView: View {
     VStack {
       Text(networkMonitor.isConnected ? "Connected" : "Not Connected")
       Text(getCurrentSSID())
+    }.onChange(of: networkMonitor.isConnected) {
+      guard networkMonitor.isConnected else { return }
+      if getCurrentSSID() == Constants.OFFICE_SSID {
+        Task {
+          try await sendMessage(text: "Atul has arrived at the office.")
+        }
+      }
     }
   }
 }
