@@ -29,7 +29,10 @@ struct ContentView: View {
       if getCurrentSSID() == Constants.OFFICE_SSID {
         Task {
           let currentDate = Date()
-          if !Calendar.current.isDate(currentDate, inSameDayAs: lastSent) {
+          let calendar = Calendar.current
+          if !calendar.isDate(currentDate, inSameDayAs: lastSent)
+            && !calendar.isDateInWeekend(currentDate)
+          {
             try await sendMessage(text: "Atul has arrived at the office.")
             self.lastSent = currentDate
           }
