@@ -1,9 +1,27 @@
+import Network
 import SwiftUI
 
+class NetworkMonitor: ObservableObject {
+  let monitor: NWPathMonitor
+  let queue = DispatchQueue(label: "NetworkMonitor")
+  @Published var isConnected: Bool = false
+
+  init() {
+    monitor = NWPathMonitor()
+    monitor.pathUpdateHandler = { path in
+      Task { await MainActor.run { self.isConnected = path.status == .satisfied } }
+    }
+    monitor.start(queue: queue)
+  }
+}
+
 struct ContentView: View {
+  @StateObject private var networkMonitor = NetworkMonitor()
 
   var body: some View {
-    Text("Hello World")
+    VStack {
+      Text(networkMonitor.isConnected ? "Connected" : "Not Connected")
+      Text(getCurrentSSID())
+    }
   }
-
 }
