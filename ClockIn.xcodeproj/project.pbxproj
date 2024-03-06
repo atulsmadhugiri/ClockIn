@@ -12,6 +12,8 @@
 		B77B63922B97AC38008F0586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77B63912B97AC38008F0586 /* Assets.xcassets */; };
 		B77B63952B97AC38008F0586 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77B63942B97AC38008F0586 /* Preview Assets.xcassets */; };
 		B7D57D882B984AD4008E9511 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D872B984AD4008E9511 /* NetworkManager.swift */; };
+		B7D57D8A2B984C76008E9511 /* MessageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D892B984C76008E9511 /* MessageUtils.swift */; };
+		B7D57D8C2B985500008E9511 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D8B2B985500008E9511 /* Secrets.swift */; };
 		B7F38C1A2B98467A0062E9C3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F38C192B98467A0062E9C3 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		B77B63942B97AC38008F0586 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B77B63962B97AC38008F0586 /* ClockIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClockIn.entitlements; sourceTree = "<group>"; };
 		B7D57D872B984AD4008E9511 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B7D57D892B984C76008E9511 /* MessageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUtils.swift; sourceTree = "<group>"; };
+		B7D57D8B2B985500008E9511 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B7F38C192B98467A0062E9C3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +64,8 @@
 				B77B638D2B97AC37008F0586 /* ContentView.swift */,
 				B7F38C192B98467A0062E9C3 /* Utils.swift */,
 				B7D57D872B984AD4008E9511 /* NetworkManager.swift */,
+				B7D57D892B984C76008E9511 /* MessageUtils.swift */,
+				B7D57D8B2B985500008E9511 /* Secrets.swift */,
 				B77B63912B97AC38008F0586 /* Assets.xcassets */,
 				B77B63962B97AC38008F0586 /* ClockIn.entitlements */,
 				B77B63932B97AC38008F0586 /* Preview Content */,
@@ -146,9 +152,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7D57D882B984AD4008E9511 /* NetworkManager.swift in Sources */,
+				B7D57D8C2B985500008E9511 /* Secrets.swift in Sources */,
 				B77B638E2B97AC37008F0586 /* ContentView.swift in Sources */,
 				B77B638C2B97AC37008F0586 /* ClockInApp.swift in Sources */,
 				B7F38C1A2B98467A0062E9C3 /* Utils.swift in Sources */,
+				B7D57D8A2B984C76008E9511 /* MessageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

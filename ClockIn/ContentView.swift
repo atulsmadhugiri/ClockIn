@@ -7,9 +7,18 @@ class NetworkMonitor: ObservableObject {
   @Published var isConnected: Bool = false
 
   init() {
-    monitor = NWPathMonitor()
+    monitor = NWPathMonitor(requiredInterfaceType: .wifi)
     monitor.pathUpdateHandler = { path in
-      Task { await MainActor.run { self.isConnected = path.status == .satisfied } }
+      Task {
+        await MainActor.run {
+          self.isConnected = path.status == .satisfied
+          if self.isConnected && (getCurrentSSID() == "wizards") {
+            Task {
+              try await sendMessage(text: "Atul has arrived at the office.")
+            }
+          }
+        }
+      }
     }
     monitor.start(queue: queue)
   }
