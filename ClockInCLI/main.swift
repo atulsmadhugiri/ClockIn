@@ -13,16 +13,26 @@ class NetworkMonitor {
         guard !self.isConnected else { return }
         self.isConnected = true
         if getCurrentSSID() == Constants.OFFICE_SSID {
-          Task {
-            try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-            try await sendMessage(text: "Atul is here.")
-          }
+          self.potentiallySendMessage()
         }
       } else {
         self.isConnected = false
       }
     }
     monitor.start(queue: queue)
+  }
+
+  private func potentiallySendMessage() {
+    let now = Date()
+    let calendar = Calendar.current
+
+    if !calendar.isDate(now, inSameDayAs: self.updateLastSentAt) && !calendar.isDateInWeekend(now) {
+      Task {
+        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+        try await sendMessage(text: "Atul is here.")
+        self.updateLastSentAt = now
+      }
+    }
   }
 
 }
