@@ -12,6 +12,11 @@
 		B77B63922B97AC38008F0586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77B63912B97AC38008F0586 /* Assets.xcassets */; };
 		B77B63952B97AC38008F0586 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77B63942B97AC38008F0586 /* Preview Assets.xcassets */; };
 		B79A54FD2B9BCC810020B273 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A54FC2B9BCC810020B273 /* main.swift */; };
+		B79A55012B9BD0320020B273 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F38C192B98467A0062E9C3 /* Utils.swift */; };
+		B79A55022B9BD03D0020B273 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D8F2B9857FE008E9511 /* Constants.swift */; };
+		B79A55032B9BD3630020B273 /* MessageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D892B984C76008E9511 /* MessageUtils.swift */; };
+		B79A55042B9BD38B0020B273 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D8B2B985500008E9511 /* Secrets.swift */; };
+		B79A55052B9BD3940020B273 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D872B984AD4008E9511 /* NetworkManager.swift */; };
 		B7D57D882B984AD4008E9511 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D872B984AD4008E9511 /* NetworkManager.swift */; };
 		B7D57D8A2B984C76008E9511 /* MessageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D892B984C76008E9511 /* MessageUtils.swift */; };
 		B7D57D8C2B985500008E9511 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D57D8B2B985500008E9511 /* Secrets.swift */; };
@@ -221,7 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79A55052B9BD3940020B273 /* NetworkManager.swift in Sources */,
 				B79A54FD2B9BCC810020B273 /* main.swift in Sources */,
+				B79A55042B9BD38B0020B273 /* Secrets.swift in Sources */,
+				B79A55012B9BD0320020B273 /* Utils.swift in Sources */,
+				B79A55022B9BD03D0020B273 /* Constants.swift in Sources */,
+				B79A55032B9BD3630020B273 /* MessageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
