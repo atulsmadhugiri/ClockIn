@@ -28,8 +28,8 @@ class NetworkMonitor {
 
     if !calendar.isDate(now, inSameDayAs: self.updateLastSentAt) && !calendar.isDateInWeekend(now) {
       Task {
-        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-        try await sendMessage(text: "Atul is here.")
+        try await Task.sleep(nanoseconds: UInt64.random(in: 1...10_000) * 1_000_000)
+        try await sendMessage(text: "Atul has arrived at the office.")
         self.updateLastSentAt = now
       }
     }
